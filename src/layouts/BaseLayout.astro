@@ -1,0 +1,33 @@
+---
+import Navigation from '../components/Navigation.astro';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{title}</title>
+  {description && <meta name="description" content={description}>}
+  <link rel="alternate" type="application/rss+xml" title="Michael Epps Blog RSS Feed" href={new URL("rss.xml", Astro.site)} />
+</head>
+<body class="min-h-screen">
+  <div class="flex flex-col md:flex-row">
+    <aside class="md:w-auto md:min-h-screen">
+      <Navigation />
+    </aside>
+    <main class="flex-1 flex justify-center p-4">
+      <div class="w-full max-w-3xl">
+        <slot />
+      </div>
+    </main>
+  </div>
+</body>
+</html>
