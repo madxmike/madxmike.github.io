@@ -1,0 +1,14 @@
+---
+import { FontAwesomeIcon } from 'astro-fontawesome';
+
+interface Props {
+  href: string;
+  icon: any;
+  label: string;
+}
+
+const { href, icon, label } = Astro.props;
+---
+<a href={href} target="_blank" rel="noopener noreferrer" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100" aria-label={label}>
+  <FontAwesomeIcon icon={icon} class="w-5 h-5" />
+</a>
