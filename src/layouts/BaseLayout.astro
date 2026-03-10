@@ -29,6 +29,9 @@ const { title, description } = Astro.props;
     </aside>
     <main class="flex-1 max-w-2xl">
       <slot />
+      <footer class="mt-24 pt-8 border-t border-gray-200 text-sm text-gray-600">
+        © {new Date().getFullYear()} Michael Epps.
+      </footer>
     </main>
   </div>
 </body>
