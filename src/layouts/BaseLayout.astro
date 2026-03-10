@@ -1,6 +1,10 @@
 ---
 import Navigation from '../components/Navigation.astro';
 import '../styles/global.css';
+import '@fontsource/source-sans-3/300.css';
+import '@fontsource/source-sans-3/400.css';
+import '@fontsource/source-sans-3/600.css';
+import '@fontsource/source-sans-3/700.css';
 
 interface Props {
   title: string;
@@ -18,15 +22,13 @@ const { title, description } = Astro.props;
   {description && <meta name="description" content={description}>}
   <link rel="alternate" type="application/rss+xml" title="Michael Epps Blog RSS Feed" href={new URL("rss.xml", Astro.site)} />
 </head>
-<body class="min-h-screen">
-  <div class="flex flex-col md:flex-row">
-    <aside class="md:w-auto md:min-h-screen">
+<body class="min-h-screen bg-white text-gray-900">
+  <div class="desktop:flex desktop:justify-center max-w-5xl mx-auto px-8 pt-32 pb-24">
+    <aside class="desktop:w-40 desktop:flex-shrink-0">
       <Navigation />
     </aside>
-    <main class="flex-1 flex justify-center p-4">
-      <div class="w-full max-w-3xl">
-        <slot />
-      </div>
+    <main class="flex-1 max-w-2xl">
+      <slot />
     </main>
   </div>
 </body>
