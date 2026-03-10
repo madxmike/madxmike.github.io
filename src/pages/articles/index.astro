@@ -10,10 +10,10 @@ const publishedPosts = allPosts
 ---
 <BaseLayout title="Articles - Michael Epps" description="All articles by Michael Epps">
   <section>
-    <h1 class="text-4xl font-bold mb-8">Articles</h1>
-    <div class="space-y-6">
-      {publishedPosts.length > 0 ? (
-        publishedPosts.map(post => (
+    <h1 class="text-xl font-semibold mb-12 uppercase tracking-wide">Michael Epps</h1>
+    {publishedPosts.length > 0 ? (
+      <div>
+        {publishedPosts.map(post => (
           <ArticleCard
             title={post.data.title}
             slug={post.id}
@@ -21,10 +21,10 @@ const publishedPosts = allPosts
             description={post.data.description}
             tags={post.data.tags}
           />
-        ))
-      ) : (
-        <p class="text-gray-600">No articles yet. Check back soon!</p>
-      )}
-    </div>
+        ))}
+      </div>
+    ) : (
+      <p class="text-gray-600">No articles yet. Check back soon!</p>
+    )}
   </section>
 </BaseLayout>
