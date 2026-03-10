@@ -3,7 +3,7 @@ const currentPath = Astro.url.pathname;
 const isAbout = currentPath === '/';
 const isWriting = currentPath.startsWith('/articles');
 ---
-<nav class="mb-12 desktop:mb-0">
+<nav class="mb-6 desktop:mb-0">
   <div class="flex gap-6 text-base desktop:flex-col desktop:gap-2">
     <a href="/" class={`hover:text-orange-600 ${isAbout ? 'text-orange-600' : ''}`}>About</a>
     <a href="/articles" class={`hover:text-orange-600 ${isWriting ? 'text-orange-600' : ''}`}>Writing</a>

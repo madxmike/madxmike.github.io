@@ -20,16 +20,18 @@ const { title, description } = Astro.props;
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{title}</title>
   {description && <meta name="description" content={description}>}
+  <link rel="icon" type="image/webp" href="/favicon-light.webp" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/webp" href="/favicon-dark.webp" media="(prefers-color-scheme: dark)">
   <link rel="alternate" type="application/rss+xml" title="Michael Epps Blog RSS Feed" href={new URL("rss.xml", Astro.site)} />
 </head>
 <body class="min-h-screen bg-white text-gray-900">
-  <div class="desktop:flex desktop:justify-center max-w-5xl mx-auto px-8 pt-32 pb-24">
+  <div class="desktop:flex desktop:justify-center max-w-5xl mx-auto px-4 desktop:px-8 pt-8 desktop:pt-32 pb-12 desktop:pb-24">
     <aside class="desktop:w-40 desktop:flex-shrink-0">
       <Navigation />
     </aside>
     <main class="flex-1 max-w-2xl">
       <slot />
-      <footer class="mt-24 pt-8 border-t border-gray-200 text-sm text-gray-600">
+      <footer class="mt-12 desktop:mt-24 pt-4 desktop:pt-8 border-t border-gray-200 text-sm text-gray-600">
         © {new Date().getFullYear()} Michael Epps.
       </footer>
     </main>
