@@ -5,7 +5,7 @@ const isWriting = currentPath.startsWith('/articles');
 ---
 <nav class="mb-6 desktop:mb-0">
   <div class="flex gap-6 text-base desktop:flex-col desktop:gap-2">
-    <a href="/" class={`hover:text-orange-600 ${isAbout ? 'text-orange-600' : ''}`}>About</a>
-    <a href="/articles" class={`hover:text-orange-600 ${isWriting ? 'text-orange-600' : ''}`}>Writing</a>
+    <a href="/" class={`hover:text-orange-600 dark:hover:text-orange-400 ${isAbout ? 'text-orange-600 dark:text-orange-400' : ''}`}>About</a>
+    <a href="/articles" class={`hover:text-orange-600 dark:hover:text-orange-400 ${isWriting ? 'text-orange-600 dark:text-orange-400' : ''}`}>Writing</a>
   </div>
 </nav>
