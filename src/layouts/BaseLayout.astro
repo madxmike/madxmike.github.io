@@ -78,7 +78,7 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
     </aside>
     
     <!-- Main content centered -->
-    <main class="max-w-2xl desktop:flex-shrink-0">
+    <main class="w-full max-w-2xl desktop:flex-shrink-0">
       <slot />
       <footer class="mt-12 desktop:mt-24 pt-4 desktop:pt-8 border-t border-gray-200 dark:border-gray-700 text-sm text-gray-600 dark:text-gray-400 flex justify-between items-center">
         <span>© {new Date().getFullYear()} Michael Epps.</span>
