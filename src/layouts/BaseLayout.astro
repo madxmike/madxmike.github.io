@@ -20,8 +20,9 @@ interface Props {
 const { title, description, image, type = 'website', publishedTime, tags } = Astro.props;
 
 // Generate meta values
-const siteTitle = 'Michael Epps';
-const fullTitle = title === siteTitle ? title : `${title} | ${siteTitle}`;
+const siteTitle = 'blog.michaelepps.me';
+const fullTitle = title;
+const ogTitle = title; // Use just the page title for Open Graph
 const defaultDescription = 'Personal blog by Michael Epps - Software engineering, technology insights, and development experiences.';
 const metaDescription = description || defaultDescription;
 const ogImage = image;
@@ -40,7 +41,7 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
   
   <!-- Open Graph -->
   <meta property="og:type" content={type}>
-  <meta property="og:title" content={fullTitle}>
+  <meta property="og:title" content={ogTitle}>
   <meta property="og:description" content={metaDescription}>
   <meta property="og:url" content={canonicalUrl}>
   <meta property="og:site_name" content={siteTitle}>
@@ -49,7 +50,7 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
   
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content={fullTitle}>
+  <meta name="twitter:title" content={ogTitle}>
   <meta name="twitter:description" content={metaDescription}>
   {ogImage && <meta name="twitter:image" content={new URL(ogImage, Astro.site)}>}
   {ogImage && <meta name="twitter:image:alt" content={`${title} - ${siteTitle}`}>}
