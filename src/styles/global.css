@@ -18,40 +18,4 @@
   a {
     @apply text-blue-600 dark:text-blue-400 underline underline-offset-2 hover:opacity-80;
   }
-  
-  .navlink {
-    @apply no-underline text-current hover:text-orange-600 dark:hover:text-orange-400;
-  }
-  
-  .prose p {
-    @apply leading-relaxed my-4;
-  }
-  
-  .prose h1, .prose h2, .prose h3 {
-    @apply text-[17px] desktop:text-[15px] font-bold mt-8 mb-4;
-  }
-  
-  .prose code {
-    @apply text-pink-500 dark:text-pink-300 text-sm;
-  }
-  
-  .prose pre {
-    @apply bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-md p-4 overflow-x-auto my-6;
-  }
-  
-  .prose blockquote {
-    @apply border-l-4 border-gray-200 dark:border-gray-600 pl-4 my-6 italic text-gray-600 dark:text-gray-400;
-  }
-  
-  .prose ul {
-    list-style-type: disc;
-    padding-left: 2.5rem;
-    margin: 1rem 0;
-  }
-  
-  .prose ol {
-    list-style-type: decimal;
-    padding-left: 2.5rem;
-    margin: 1rem 0;
-  }
 }
