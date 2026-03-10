@@ -1,5 +1,7 @@
 ---
 import Navigation from '../components/Navigation.astro';
+import { FontAwesomeIcon } from 'astro-fontawesome';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import '../styles/global.css';
 import '@fontsource/source-sans-3/300.css';
 import '@fontsource/source-sans-3/400.css';
@@ -31,8 +33,11 @@ const { title, description } = Astro.props;
     </aside>
     <main class="flex-1 max-w-2xl">
       <slot />
-      <footer class="mt-12 desktop:mt-24 pt-4 desktop:pt-8 border-t border-gray-200 dark:border-gray-700 text-sm text-gray-600 dark:text-gray-400">
-        © {new Date().getFullYear()} Michael Epps.
+      <footer class="mt-12 desktop:mt-24 pt-4 desktop:pt-8 border-t border-gray-200 dark:border-gray-700 text-sm text-gray-600 dark:text-gray-400 flex justify-between items-center">
+        <span>© {new Date().getFullYear()} Michael Epps.</span>
+        <a href="https://github.com/madxmike/madxmike.github.io" target="_blank" rel="noopener noreferrer" class="hover:text-gray-900 dark:hover:text-gray-100" aria-label="View source on GitHub">
+          <FontAwesomeIcon icon={faGithub} class="w-5 h-5" />
+        </a>
       </footer>
     </main>
   </div>

@@ -1,0 +1,42 @@
+﻿---
+import { layer, icon, type IconDefinition } from '@fortawesome/fontawesome-svg-core'
+import '@fortawesome/fontawesome-svg-core/styles.css'
+
+interface IconsDefinition {
+  icon: IconDefinition
+  class?: string
+}
+
+interface Props {
+  icons: IconsDefinition[]
+  class?: string
+}
+
+const { class: className, icons: iconNames, ...rest } = Astro.props
+
+const layerHtml = layer(
+  (push) => {
+    for (const iconDefinition of iconNames) {
+      push(
+        icon(iconDefinition.icon, {
+          attributes: rest,
+          classes: Array.from(new Set(iconDefinition.class?.split(' ')))
+        })
+      )
+    }
+  },
+  {
+    classes: Array.from(new Set(className?.split(' ')))
+  }
+).html
+
+// This is a little ugly, but Font Awesome's Layer does not provide a direct way to add attributes.
+const layerHtmlWithAstroData = layerHtml[0].replace(
+  '<span ',
+  `<span ${Object.entries(rest)
+    .map(([key, value]) => `${key}="${value}"`)
+    .join(' ')} `
+)
+---
+
+<Fragment set:html={layerHtmlWithAstroData} />
