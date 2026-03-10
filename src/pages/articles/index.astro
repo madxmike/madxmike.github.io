@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
+import Title from '../../components/Title.astro';
 
 const allPosts = await getCollection('blog');
 const publishedPosts = allPosts
@@ -10,7 +11,7 @@ const publishedPosts = allPosts
 ---
 <BaseLayout title="Articles - Michael Epps" description="All articles by Michael Epps">
   <section>
-    <h1 class="text-xl font-semibold mb-6 desktop:mb-12 uppercase tracking-wide">Michael Epps</h1>
+    <Title class="mb-6 desktop:mb-12">Michael Epps</Title>
     {publishedPosts.length > 0 ? (
       <div>
         {publishedPosts.map(post => (

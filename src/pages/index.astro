@@ -2,6 +2,8 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ArticleCard from '../components/ArticleCard.astro';
+import Prose from '../components/Prose.astro';
+import Title from '../components/Title.astro';
 
 const allPosts = await getCollection('blog');
 const publishedPosts = allPosts
@@ -11,13 +13,13 @@ const recentPosts = publishedPosts.slice(0, 5);
 ---
 <BaseLayout title="Michael Epps - Personal Blog" description="Personal blog by Michael Epps">
   <section>
-    <h1 class="text-xl font-semibold mb-4 desktop:mb-8 uppercase tracking-wide">Michael Epps</h1>
-    <div class="prose">
+    <Title class="mb-4 desktop:mb-8">Michael Epps</Title>
+    <Prose>
       <p>
         Welcome to my personal blog. I write about web development, software engineering, 
         and technology. This space is where I share my thoughts, experiences, and learnings 
         from building software.
       </p>
-    </div>
+    </Prose>
   </section>
 </BaseLayout>
