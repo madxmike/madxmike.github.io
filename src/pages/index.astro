@@ -1,15 +1,7 @@
 ---
-import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import ArticleCard from '../components/ArticleCard.astro';
 import Prose from '../components/Prose.astro';
 import Title from '../components/Title.astro';
-
-const allPosts = await getCollection('blog');
-const publishedPosts = allPosts
-  .filter(post => !post.data.draft)
-  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
-const recentPosts = publishedPosts.slice(0, 5);
 ---
 <BaseLayout title="Michael Epps - Personal Blog" description="Personal blog by Michael Epps">
   <section>

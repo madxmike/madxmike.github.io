@@ -1,31 +1,37 @@
 ---
-import { getCollection } from 'astro:content';
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import ArticleCard from '../../components/ArticleCard.astro';
-import Title from '../../components/Title.astro';
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ArticleCard from "../../components/ArticleCard.astro";
+import Title from "../../components/Title.astro";
 
-const allPosts = await getCollection('blog');
+const allPosts = await getCollection("blog");
 const publishedPosts = allPosts
-  .filter(post => !post.data.draft)
-  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+    .filter((post) => !post.data.draft)
+    .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
-<BaseLayout title="Articles - Michael Epps" description="All articles by Michael Epps">
-  <section>
-    <Title class="mb-6 desktop:mb-12">Michael Epps</Title>
-    {publishedPosts.length > 0 ? (
-      <div>
-        {publishedPosts.map(post => (
-          <ArticleCard
-            title={post.data.title}
-            slug={post.id}
-            pubDate={post.data.pubDate}
-            description={post.data.description}
-            tags={post.data.tags}
-          />
-        ))}
-      </div>
-    ) : (
-      <p class="text-gray-600">No articles yet. Check back soon!</p>
-    )}
-  </section>
+
+<BaseLayout
+    title="Articles - Michael Epps"
+    description="All articles by Michael Epps"
+>
+    <section>
+        <Title class="mb-6 desktop:mb-12">Michael Epps</Title>
+        {
+            publishedPosts.length > 0 ? (
+                <div>
+                    {publishedPosts.map((post) => (
+                        <ArticleCard
+                            title={post.data.title}
+                            slug={post.id}
+                            pubDate={post.data.pubDate}
+                            description={post.data.description}
+                            tags={post.data.tags}
+                        />
+                    ))}
+                </div>
+            ) : (
+                <p class="text-gray-600">No articles yet. Check back soon!</p>
+            )
+        }
+    </section>
 </BaseLayout>

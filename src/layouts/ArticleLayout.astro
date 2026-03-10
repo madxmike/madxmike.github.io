@@ -17,7 +17,13 @@ const formattedDate = new Date(pubDate).toLocaleDateString('en-US', {
   day: 'numeric' 
 });
 ---
-<BaseLayout title={title} description={description}>
+<BaseLayout 
+  title={title} 
+  description={description}
+  type="article"
+  publishedTime={pubDate}
+  tags={tags}
+>
   <article>
     <header class="mb-6 desktop:mb-12">
       <Title class="mb-3">{title}</Title>
