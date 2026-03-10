@@ -1,17 +1,42 @@
 ---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ArticleCard from '../components/ArticleCard.astro';
 
+const allPosts = await getCollection('blog');
+const publishedPosts = allPosts
+  .filter(post => !post.data.draft)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+const recentPosts = publishedPosts.slice(0, 5);
 ---
+<BaseLayout title="Michael Epps - Personal Blog" description="Personal blog by Michael Epps">
+  <section class="mb-12">
+    <h1 class="text-4xl font-bold mb-4">Michael Epps</h1>
+    <div class="prose prose-lg">
+      <p>
+        Welcome to my personal blog. I write about web development, software engineering, 
+        and technology. This space is where I share my thoughts, experiences, and learnings 
+        from building software.
+      </p>
+    </div>
+  </section>
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+  <section>
+    <h2 class="text-3xl font-bold mb-6">Recent Articles</h2>
+    <div class="space-y-6">
+      {recentPosts.length > 0 ? (
+        recentPosts.map(post => (
+          <ArticleCard
+            title={post.data.title}
+            slug={post.id}
+            pubDate={post.data.pubDate}
+            description={post.data.description}
+            tags={post.data.tags}
+          />
+        ))
+      ) : (
+        <p class="text-gray-600">No articles yet. Check back soon!</p>
+      )}
+    </div>
+  </section>
+</BaseLayout>
