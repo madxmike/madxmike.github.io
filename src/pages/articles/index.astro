@@ -1,0 +1,30 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+
+const allPosts = await getCollection('blog');
+const publishedPosts = allPosts
+  .filter(post => !post.data.draft)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+<BaseLayout title="Articles - Michael Epps" description="All articles by Michael Epps">
+  <section>
+    <h1 class="text-4xl font-bold mb-8">Articles</h1>
+    <div class="space-y-6">
+      {publishedPosts.length > 0 ? (
+        publishedPosts.map(post => (
+          <ArticleCard
+            title={post.data.title}
+            slug={post.id}
+            pubDate={post.data.pubDate}
+            description={post.data.description}
+            tags={post.data.tags}
+          />
+        ))
+      ) : (
+        <p class="text-gray-600">No articles yet. Check back soon!</p>
+      )}
+    </div>
+  </section>
+</BaseLayout>
