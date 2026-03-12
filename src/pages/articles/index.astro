@@ -2,7 +2,7 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import ArticleCard from "../../components/ArticleCard.astro";
-import Title from "../../components/Title.astro";
+import PageTitle from "../../components/PageTitle.astro";
 
 const allPosts = await getCollection("blog");
 const publishedPosts = allPosts
@@ -15,7 +15,7 @@ const publishedPosts = allPosts
     description="Technical writing on software engineering, leadership, AI tooling, and building systems at scale."
 >
     <section>
-        <Title class="mb-6 desktop:mb-12">Michael Epps</Title>
+        <PageTitle class="mb-12">Writing</PageTitle>
         {
             publishedPosts.length > 0 ? (
                 <div>
@@ -30,7 +30,10 @@ const publishedPosts = allPosts
                     ))}
                 </div>
             ) : (
-                <p class="text-gray-600">No articles yet. Check back soon!</p>
+                <div class="text-center py-12">
+                    <p class="text-lg text-gray-500 dark:text-gray-500 mb-4">No articles yet. Check back soon!</p>
+                    <a href="/" class="text-orange-600 dark:text-orange-400 font-medium hover:underline">Go back home</a>
+                </div>
             )
         }
     </section>

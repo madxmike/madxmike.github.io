@@ -1,11 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Prose from '../components/Prose.astro';
-import Title from '../components/Title.astro';
+import PageTitle from '../components/PageTitle.astro';
 ---
 <BaseLayout title="Michael Epps" description="Software engineer at Amazon Prime Video. Writing about engineering, leadership, and building software at scale.">
   <section>
-    <Title class="mb-4 desktop:mb-8">Michael Epps</Title>
+    <PageTitle class="mb-8">Michael Epps</PageTitle>
     <Prose>
       <p>
         Hey, I'm Michael. I'm a software engineer at Amazon Prime Video where I work on 
@@ -26,9 +26,9 @@ import Title from '../components/Title.astro';
         Check out my writings on this blog if any of that sounds interesting.
       </p>
       
-      <div class="text-center mt-8">
-        <p class="text-sm text-gray-600 dark:text-gray-400 mb-2 italic">Dog tax: Meet Winnie! 🐕</p>
-        <img src="/winnie.jpg" alt="Winnie the dog" class="mx-auto rounded-lg max-w-sm w-full">
+      <div class="text-center mt-12">
+        <p class="text-sm text-gray-500 dark:text-gray-500 mb-3 italic">Dog tax: Meet Winnie! 🐕</p>
+        <img src="/winnie.jpg" alt="Winnie the dog" class="mx-auto rounded-lg max-w-sm w-full shadow-lg">
       </div>
     </Prose>
   </section>

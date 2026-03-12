@@ -1,7 +1,7 @@
 ---
 import BaseLayout from './BaseLayout.astro';
 import Prose from '../components/Prose.astro';
-import Title from '../components/Title.astro';
+import ArticleTitle from '../components/ArticleTitle.astro';
 
 interface Props {
   title: string;
@@ -25,9 +25,9 @@ const formattedDate = new Date(pubDate).toLocaleDateString('en-US', {
   tags={tags}
 >
   <article>
-    <header class="mb-6 desktop:mb-12">
-      <Title class="mb-3">{title}</Title>
-      <time datetime={pubDate.toISOString()} class="text-sm text-gray-600 dark:text-gray-400">{formattedDate}</time>
+    <header class="mb-12">
+      <ArticleTitle class="mb-4">{title}</ArticleTitle>
+      <time datetime={pubDate.toISOString()} class="text-sm text-gray-500 dark:text-gray-500">{formattedDate}</time>
     </header>
     <Prose>
       <slot />

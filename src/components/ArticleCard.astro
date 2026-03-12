@@ -1,5 +1,5 @@
 ---
-import Title from './Title.astro';
+import ArticleCardTitle from './ArticleCardTitle.astro';
 
 interface Props {
   title: string;
@@ -16,10 +16,10 @@ const formattedDate = new Date(pubDate).toLocaleDateString('en-US', {
   day: 'numeric' 
 });
 ---
-<article class="mb-5 desktop:mb-10 pb-5 desktop:pb-10 border-b border-gray-200 dark:border-gray-700 last:border-b-0">
-  <a href={`/articles/${slug}`} class="block group no-underline text-current hover:text-current">
-    <Title class="mb-2 group-hover:underline">{title}</Title>
-    <time datetime={pubDate.toISOString()} class="text-sm text-gray-600 dark:text-gray-400">{formattedDate}</time>
+<article class="mb-12 pb-12 border-b border-gray-200 dark:border-gray-700 last:border-b-0">
+  <a href={`/articles/${slug}`} class="block group no-underline">
+    <ArticleCardTitle class="mb-2 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors">{title}</ArticleCardTitle>
+    <time datetime={pubDate.toISOString()} class="text-sm text-gray-500 dark:text-gray-500">{formattedDate}</time>
+    <p class="text-gray-700 dark:text-gray-300 mt-3">{description}</p>
   </a>
-  <p class="text-gray-700 dark:text-gray-300 mt-2">{description}</p>
 </article>

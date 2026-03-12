@@ -8,7 +8,7 @@ const { href, isActive } = Astro.props;
 ---
 <a 
   href={href} 
-  class={`no-underline text-current hover:text-orange-600 dark:hover:text-orange-400 ${isActive ? 'text-orange-600 dark:text-orange-400' : ''}`}
+  class={`no-underline font-medium transition-colors ${isActive ? 'text-orange-600 dark:text-orange-400' : 'text-gray-700 dark:text-gray-300 hover:text-orange-600 dark:hover:text-orange-400'}`}
 >
   <slot />
 </a>

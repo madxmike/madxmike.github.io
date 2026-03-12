@@ -1,6 +1,6 @@
 ---
 ---
-<div class="prose text-gray-800 dark:text-gray-300">
+<div class="prose text-gray-900 dark:text-gray-100">
   <slot />
 </div>
 
@@ -8,34 +8,70 @@
   @reference "../styles/global.css";
   
   .prose :global(p) {
-    @apply leading-relaxed my-4;
+    @apply my-6;
   }
   
-  .prose :global(h1), .prose :global(h2), .prose :global(h3) {
-    @apply text-[17px] desktop:text-[15px] font-bold mt-8 mb-4;
+  .prose :global(h1) {
+    @apply text-2xl font-semibold text-gray-900 dark:text-gray-50 mt-12 mb-6;
+  }
+  
+  .prose :global(h2) {
+    @apply text-xl font-semibold text-gray-900 dark:text-gray-50 mt-12 mb-4;
+  }
+  
+  .prose :global(h3) {
+    @apply text-lg font-semibold text-gray-900 dark:text-gray-50 mt-8 mb-3;
+  }
+  
+  .prose :global(h4) {
+    @apply text-base font-semibold text-gray-900 dark:text-gray-50 mt-8 mb-3;
+  }
+  
+  .prose :global(h5) {
+    @apply text-base font-semibold text-gray-900 dark:text-gray-50 mt-6 mb-2;
+  }
+  
+  .prose :global(h6) {
+    @apply text-sm font-semibold text-gray-900 dark:text-gray-50 mt-6 mb-2;
+  }
+  
+  .prose :global(strong) {
+    @apply font-semibold text-gray-900 dark:text-gray-50;
   }
   
   .prose :global(code) {
-    @apply text-pink-500 dark:text-pink-300 text-sm;
+    @apply text-orange-600 dark:text-orange-400 text-sm bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded;
   }
   
   .prose :global(pre) {
-    @apply bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-md p-4 overflow-x-auto my-6;
+    @apply bg-gray-50 dark:bg-gray-800 rounded-lg p-4 overflow-x-auto my-6;
+  }
+  
+  .prose :global(pre code) {
+    @apply bg-transparent p-0 text-gray-900 dark:text-gray-100;
   }
   
   .prose :global(blockquote) {
-    @apply border-l-4 border-gray-200 dark:border-gray-600 pl-4 my-6 italic text-gray-600 dark:text-gray-400;
+    @apply border-l-4 border-orange-500 pl-6 my-8 text-gray-700 dark:text-gray-300;
+  }
+  
+  .prose :global(ul), .prose :global(ol) {
+    @apply my-6 pl-8 space-y-2;
   }
   
   .prose :global(ul) {
     list-style-type: disc;
-    padding-left: 2.5rem;
-    margin: 1rem 0;
   }
   
   .prose :global(ol) {
     list-style-type: decimal;
-    padding-left: 2.5rem;
-    margin: 1rem 0;
+  }
+  
+  .prose :global(li) {
+    @apply pl-2;
+  }
+  
+  .prose :global(hr) {
+    @apply my-12 border-gray-200 dark:border-gray-700;
   }
 </style>
