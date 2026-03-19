@@ -5,4 +5,34 @@ description: "No ghosts in the machine—just math. Here's how to use it."
 tags: ["ai", "language models", "technology"]
 ---
 
-<existing content goes here>
+# There Is No Ghost in the Machine
+
+*Notice: this article was written with AI assistance. The thoughts and opinions are mine, but the writing was produced through many rounds of iteration with Claude Sonnet 4.6. If you prefer not to read AI-assisted writing, this is your opt-out point.*
+
+Some engineers type in all caps at their AI terminals, swearing, demanding, threatening, occasionally apologizing. These are smart people who build software for a living, and they are arguing with a calculator.
+
+They know that. Ask whether there's a thinking person on the other side and they'll say no. But knowing doesn't help, because the feeling kicks in anyway. It's a chat window. You type, something types back, and that format is built for talking to people. The feeling shows up whether you want it or not. The ghost isn't a mistake you bring to the tool. It's built into the tool. Knowing how it works won't make the feeling go away. What you can do is understand the thing well enough that when the feeling kicks in, you don't let it steer.
+
+There is no ghost in the machine. Here's what's in there instead.
+
+A language model is a math function. Words go in, broken into chunks called tokens, and the model runs those tokens through a huge pile of math using numbers learned from reading a lot of text. Out comes a guess for the next word, which gets picked and fed back in, and the whole thing repeats. No thinking, no understanding, no feelings. The output that sounds like it really gets you is produced by the same process as the output that gets everything wrong, the same math running the same way with no awareness of the difference. When it seems to understand, it's because that kind of input tends to be followed by that kind of output in the training data. Pattern match, nothing more.
+
+This is why caps lock doesn't work. All caps changes the input, and that's real, but it isn't sending urgency to something that can feel urgency because nothing in there can feel anything. The model saw all-caps text during training, mostly in angry or emphatic contexts, so the output shifts a little. Sometimes the response changes, sometimes it doesn't. What never happens is something deciding to try harder. The feeling says it does. It doesn't.
+
+The feeling also says that when you correct the model and it apologizes, the correction stuck. This one costs real time. Tell the model it got something wrong and it says sorry, but that's just the next likely word given your input. The math hasn't changed, and on the next response it can make the exact same mistake as if you said nothing. It looks like it understood and forgot, but neither happened. Your correction wasn't enough to push the output somewhere new. Engineers who don't know this keep correcting, keep getting apologies, keep getting the same wrong answer, and conclude the model is broken. It isn't. The feeling is pointing them at the wrong problem.
+
+What actually works is shaping the input so the math lands where you want it. The feeling will push you toward conversation: explaining, correcting, expressing frustration. Do the opposite. These aren't guaranteed techniques, since the model is non-deterministic and what shifts the output in one context may do nothing in another. They're ways of thinking about the problem, not recipes.
+
+Be specific. "Write me a function that does X" is worse than "Write me a Python function that takes a list of integers and returns the three largest, without using sort, with a docstring." Every vague word is space the model fills with whatever training pulls it toward, so close that space yourself.
+
+Give it examples. Want output in a particular format, show it one. Want code that follows your team's patterns, paste a short existing example first. The output will weight toward what you showed it, which is more reliable than describing the format in words.
+
+Break tasks down. A prompt asking for a full feature, design, implementation, tests, docs, gives the math too much room to wander. Ask for the interface first, check it, then the implementation. Each small step keeps the output in a tighter space.
+
+When a correction needs to stick, rewrite the prompt rather than replying. Going back and fixing the original input is more reliable than "actually, do it this way instead" in the next message, which might shift the output once but probably won't hold. Put the constraint in the prompt where it will be there every time.
+
+Tell it what to avoid. If there's a direction you know it'll pull toward, say so explicitly. "Do not use a class for this, use functions." "Do not add error handling yet." Negative constraints work because the model saw text with those patterns and learned what tends to come after them.
+
+None of this feels natural, because the interface is built to feel like talking to someone who gets it. Fighting that feeling is the actual work. The engineers who get the best results think about the math while they type, not just when something breaks, but as a constant frame. What is it likely to do here? What input will push it toward what I need? That habit is what the feeling works against, and it's also what beats it.
+
+There is no ghost in there. Just math and a next word to pick. The feeling will keep telling you otherwise. Don't let it.
